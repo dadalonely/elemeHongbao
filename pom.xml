@@ -67,11 +67,10 @@
    			<optional>true</optional> 
 		</dependency>
 		<!-- String工具类 -->
-		<dependency>  
-	      <groupId>commons-lang</groupId>  
-	      <artifactId>commons-lang</artifactId>  
-	      <version>2.6</version>  
-	      <scope>provided</scope>  
+		<dependency>
+	      <groupId>commons-lang</groupId>
+	      <artifactId>commons-lang</artifactId>
+	      <version>2.6</version>
 	    </dependency>
 	    <!-- httpClient -->
 	    <dependency>
