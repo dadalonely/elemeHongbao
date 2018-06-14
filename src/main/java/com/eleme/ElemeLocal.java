@@ -25,10 +25,10 @@ import java.util.regex.Pattern;
 @Component
 public class ElemeLocal {
 
-    private final static String url="https://h5.ele.me/hongbao/#hardware_id=&is_lucky_group=True&lucky_number=10&track_id=&platform=0&sn=29f9c9deb01cc45d&theme_id=2697&device_id=&refer_user_id=250858068";
+    private final static String url="https://h5.ele.me/hongbao/#hardware_id=&is_lucky_group=True&lucky_number=10&track_id=&platform=0&sn=29f9ce9f8a1c449d&theme_id=2697&device_id=&refer_user_id=14514825";
     private final static String avatar="A77F4A1981987D0B368130493C1FCE8B";
     private final static String sign="da652fbe1b8b681505b0e64c883c4730";
-    private final static String phoneNum="18221741421";
+    private final static String phoneNum="15618566066";
 
     private final static String cookie1="perf_ssid=54m3ygak5hvms6tj5bf00qtq665ky429_2018-06-06; ubt_ssid=ayx9x7bsmklbow5mzwfazvxlcpbpanfa_2018-06-06; _utrace=a7f8d5f9dbef47ef54cd50fc0ce968d3_2018-06-06; snsInfo[101204453]=%7B%22city%22%3A%22%22%2C%22eleme_key%22%3A%2216ef68c28b9a08426dbe9d7f6a6a5584%22%2C%22figureurl%22%3A%22http%3A%2F%2Fqzapp.qlogo.cn%2Fqzapp%2F101204453%2F72CECABFB39F2DC214A9C354648CE258%2F30%22%2C%22figureurl_1%22%3A%22http%3A%2F%2Fqzapp.qlogo.cn%2Fqzapp%2F101204453%2F72CECABFB39F2DC214A9C354648CE258%2F50%22%2C%22figureurl_2%22%3A%22http%3A%2F%2Fqzapp.qlogo.cn%2Fqzapp%2F101204453%2F72CECABFB39F2DC214A9C354648CE258%2F100%22%2C%22figureurl_qq_1%22%3A%22http%3A%2F%2Fthirdqq.qlogo.cn%2Fqqapp%2F101204453%2F72CECABFB39F2DC214A9C354648CE258%2F40%22%2C%22figureurl_qq_2%22%3A%22http%3A%2F%2Fthirdqq.qlogo.cn%2Fqqapp%2F101204453%2F72CECABFB39F2DC214A9C354648CE258%2F100%22%2C%22gender%22%3A%22%E7%94%B7%22%2C%22is_lost%22%3A0%2C%22is_yellow_vip%22%3A%220%22%2C%22is_yellow_year_vip%22%3A%220%22%2C%22level%22%3A%220%22%2C%22msg%22%3A%22%22%2C%22nickname%22%3A%22%E8%BD%BB%E8%88%9E%E9%A3%9E%E6%89%AC%22%2C%22openid%22%3A%2272CECABFB39F2DC214A9C354648CE258%22%2C%22province%22%3A%22%22%2C%22ret%22%3A0%2C%22vip%22%3A%220%22%2C%22year%22%3A%221990%22%2C%22yellow_vip_level%22%3A%220%22%2C%22name%22%3A%22%E8%BD%BB%E8%88%9E%E9%A3%9E%E6%89%AC%22%2C%22avatar%22%3A%22http%3A%2F%2Fthirdqq.qlogo.cn%2Fqqapp%2F101204453%2F72CECABFB39F2DC214A9C354648CE258%2F40%22%7D";
     private final static String cookie2="perf_ssid=54m3ygak5hvms6tj5bf00qtq665ky429_2018-06-06; ubt_ssid=ayx9x7bsmklbow5mzwfazvxlcpbpanfa_2018-06-06; _utrace=a7f8d5f9dbef47ef54cd50fc0ce968d3_2018-06-06; snsInfo[101204453]=%7B%22city%22%3A%22%E6%B5%B7%E6%B7%80%22%2C%22eleme_key%22%3A%2221f46d91e39572beef35009e5baf886e%22%2C%22figureurl%22%3A%22http%3A%2F%2Fqzapp.qlogo.cn%2Fqzapp%2F101204453%2FEA596CEA62B870E021C85C6B0B17DDE4%2F30%22%2C%22figureurl_1%22%3A%22http%3A%2F%2Fqzapp.qlogo.cn%2Fqzapp%2F101204453%2FEA596CEA62B870E021C85C6B0B17DDE4%2F50%22%2C%22figureurl_2%22%3A%22http%3A%2F%2Fqzapp.qlogo.cn%2Fqzapp%2F101204453%2FEA596CEA62B870E021C85C6B0B17DDE4%2F100%22%2C%22figureurl_qq_1%22%3A%22http%3A%2F%2Fthirdqq.qlogo.cn%2Fqqapp%2F101204453%2FEA596CEA62B870E021C85C6B0B17DDE4%2F40%22%2C%22figureurl_qq_2%22%3A%22http%3A%2F%2Fthirdqq.qlogo.cn%2Fqqapp%2F101204453%2FEA596CEA62B870E021C85C6B0B17DDE4%2F100%22%2C%22gender%22%3A%22%E5%A5%B3%22%2C%22is_lost%22%3A0%2C%22is_yellow_vip%22%3A%220%22%2C%22is_yellow_year_vip%22%3A%220%22%2C%22level%22%3A%220%22%2C%22msg%22%3A%22%22%2C%22nickname%22%3A%22%E6%98%A5%E6%9A%96%E8%8A%B1%E5%BC%80%22%2C%22openid%22%3A%22EA596CEA62B870E021C85C6B0B17DDE4%22%2C%22province%22%3A%22%E5%8C%97%E4%BA%AC%22%2C%22ret%22%3A0%2C%22vip%22%3A%220%22%2C%22year%22%3A%222000%22%2C%22yellow_vip_level%22%3A%220%22%2C%22name%22%3A%22%E6%98%A5%E6%9A%96%E8%8A%B1%E5%BC%80%22%2C%22avatar%22%3A%22http%3A%2F%2Fthirdqq.qlogo.cn%2Fqqapp%2F101204453%2FEA596CEA62B870E021C85C6B0B17DDE4%2F40%22%7D";
@@ -71,7 +71,9 @@ public class ElemeLocal {
 
 
     public static void main(String[] args) throws IOException {
-//        elemeLocal.getMaxHongBao(phoneNum,url);
+        String msg=elemeLocal.getMaxHongBao(phoneNum,url);
+        System.out.println("msg"+msg);
+//        System.out.println(elemeLocal.randomPhoneNum());
 //        formatConversion(cookie13);
 //        logger.info("ssss");
 //        getHongbao(url,"4081BAC79C018D7FDC3774A5634C6256","8c427198a6578e0c1db172a81f5c00a2",randomPhoneNum(),"灭霸");
@@ -88,7 +90,9 @@ public class ElemeLocal {
                 if(change>12){
                     change=0;
                 }
-
+                if(errorUrlExponent>15){
+                    return  "异常链接";
+                }
                List<String> list= formatConversion(userList.get(change));
                if(null==list|| list.size()==0){
                    System.out.println("根据cookie获取为空");
@@ -99,27 +103,29 @@ public class ElemeLocal {
 
 
 
+                String rnadomPhone=randomPhoneNum();
+                changePhoneNum(rnadomPhone,avatar,sign);	//修改为目标手机号
+                residueNumAndMoney = getHongbao(url,avatar,sign,rnadomPhone,"灭霸1");     //调用领红包方法兵获取领红包方法返回的剩余领取次数与金额
 
-                residueNumAndMoney = getHongbao(url,avatar,sign,randomPhoneNum(),"灭霸1");     //调用领红包方法兵获取领红包方法返回的剩余领取次数与金额
-                if((int)residueNumAndMoney[0] == lastResidueNum){		//判断剩余领取次数是否与上次相同，如果相同则领取错误次数+1
-
-                    errorUrlExponent++;
-                }else{
-                    errorUrlExponent = 0;
-                }
-                if(errorUrlExponent == 3){
-
-                    return "异常链接，请再次尝试领取，如果第二次尝试仍然失败请不要再使用此链接";
-                }
-                lastResidueNum = (int)residueNumAndMoney[0];
+//                if((int)residueNumAndMoney[0] == lastResidueNum){		//判断剩余领取次数是否与上次相同，如果相同则领取错误次数+1
+//
+//                    errorUrlExponent++;
+//                }else{
+//                    errorUrlExponent = 0;
+//                }
+//                if(errorUrlExponent == 3){
+//
+//                    return "异常链接，请再次尝试领取，如果第二次尝试仍然失败请不要再使用此链接";
+//                }
+//                lastResidueNum = (int)residueNumAndMoney[0];
                 change++;
-
+            errorUrlExponent++;
             if((int) residueNumAndMoney[0] == 1){		//如果剩余次数等于一，此时需要将小号的PhoneNum修改为目标手机号再领取
 
 
-                    changePhoneNum(phoneNum);	//修改为目标手机号
+                    changePhoneNum(phoneNum,this.avatar,this.sign);	//修改为目标手机号
                     residueNumAndMoney = getHongbao(url,this.avatar,this.sign,phoneNum,"飘雪");		//调用领红包方法兵获取领红包方法返回的剩余领取次数与金额
-                    changePhoneNum(randomPhoneNum());	//修改为目标手机号
+                    changePhoneNum(randomPhoneNum(),this.avatar,this.sign);	//修改为目标手机号
 
                 if((int) residueNumAndMoney[0] >= 1){		//手机已经领取过此红包 或 你的手机号今日领取次数已达上限或小号领取次数耗尽，下面进行第二次尝试。
                     try {
@@ -210,8 +216,9 @@ public class ElemeLocal {
 
 
 
-    public static String randomPhoneNum(){
+    public  String randomPhoneNum(){
         String rpn = "133"+(int)((Math.random()*90000000+9999999));
+        logger.info("随机号码是：{}",rpn);
         return rpn;
     }
     //识别第几个为大红包,返回String
@@ -290,10 +297,10 @@ public class ElemeLocal {
         return list;
     }
 
-    public void changePhoneNum(String phoneNum) throws IOException {
+    public void changePhoneNum(String phoneNum,String avatar, String sign) throws IOException {
         try (CloseableHttpClient httpClient = HttpClients.createDefault()){
-            HttpPut httpPut = new HttpPut("https://h5.ele.me/restapi/v1/weixin/"+this.avatar+"/phone");
-            httpPut.setEntity(new StringEntity("{\"sign\":\""+this.sign+"\",\"phone\":\""+phoneNum+"\"}"));
+            HttpPut httpPut = new HttpPut("https://h5.ele.me/restapi/v1/weixin/"+avatar+"/phone");
+            httpPut.setEntity(new StringEntity("{\"sign\":\""+sign+"\",\"phone\":\""+phoneNum+"\"}"));
 //            altDao.changePhoneNum(id, phoneNum);
             System.out.println(phoneNum);
 //            System.out.println("id="+id);
