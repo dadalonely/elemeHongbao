@@ -25,10 +25,10 @@ import java.util.regex.Pattern;
 @Component
 public class ElemeLocal {
 
-    private final static String url="https://h5.ele.me/hongbao/#hardware_id=&is_lucky_group=True&lucky_number=10&track_id=&platform=0&sn=29f9ba0ef1ae6c5b&theme_id=2697&device_id=&refer_user_id=38644849";
-    private final static String avatar="oEGLvjtqLPOAsdbw5cfL5ULIaamQ";
-    private final static String sign="871b241db0bd50ff1ad12a51eef69d9f";
-    private final static String phoneNum="17721016460";
+    private final static String url="https://h5.ele.me/hongbao/#hardware_id=&is_lucky_group=True&lucky_number=10&track_id=&platform=0&sn=29f9c9deb01cc45d&theme_id=2697&device_id=&refer_user_id=250858068";
+    private final static String avatar="A77F4A1981987D0B368130493C1FCE8B";
+    private final static String sign="da652fbe1b8b681505b0e64c883c4730";
+    private final static String phoneNum="18221741421";
 
     private final static String cookie1="perf_ssid=54m3ygak5hvms6tj5bf00qtq665ky429_2018-06-06; ubt_ssid=ayx9x7bsmklbow5mzwfazvxlcpbpanfa_2018-06-06; _utrace=a7f8d5f9dbef47ef54cd50fc0ce968d3_2018-06-06; snsInfo[101204453]=%7B%22city%22%3A%22%22%2C%22eleme_key%22%3A%2216ef68c28b9a08426dbe9d7f6a6a5584%22%2C%22figureurl%22%3A%22http%3A%2F%2Fqzapp.qlogo.cn%2Fqzapp%2F101204453%2F72CECABFB39F2DC214A9C354648CE258%2F30%22%2C%22figureurl_1%22%3A%22http%3A%2F%2Fqzapp.qlogo.cn%2Fqzapp%2F101204453%2F72CECABFB39F2DC214A9C354648CE258%2F50%22%2C%22figureurl_2%22%3A%22http%3A%2F%2Fqzapp.qlogo.cn%2Fqzapp%2F101204453%2F72CECABFB39F2DC214A9C354648CE258%2F100%22%2C%22figureurl_qq_1%22%3A%22http%3A%2F%2Fthirdqq.qlogo.cn%2Fqqapp%2F101204453%2F72CECABFB39F2DC214A9C354648CE258%2F40%22%2C%22figureurl_qq_2%22%3A%22http%3A%2F%2Fthirdqq.qlogo.cn%2Fqqapp%2F101204453%2F72CECABFB39F2DC214A9C354648CE258%2F100%22%2C%22gender%22%3A%22%E7%94%B7%22%2C%22is_lost%22%3A0%2C%22is_yellow_vip%22%3A%220%22%2C%22is_yellow_year_vip%22%3A%220%22%2C%22level%22%3A%220%22%2C%22msg%22%3A%22%22%2C%22nickname%22%3A%22%E8%BD%BB%E8%88%9E%E9%A3%9E%E6%89%AC%22%2C%22openid%22%3A%2272CECABFB39F2DC214A9C354648CE258%22%2C%22province%22%3A%22%22%2C%22ret%22%3A0%2C%22vip%22%3A%220%22%2C%22year%22%3A%221990%22%2C%22yellow_vip_level%22%3A%220%22%2C%22name%22%3A%22%E8%BD%BB%E8%88%9E%E9%A3%9E%E6%89%AC%22%2C%22avatar%22%3A%22http%3A%2F%2Fthirdqq.qlogo.cn%2Fqqapp%2F101204453%2F72CECABFB39F2DC214A9C354648CE258%2F40%22%7D";
     private final static String cookie2="perf_ssid=54m3ygak5hvms6tj5bf00qtq665ky429_2018-06-06; ubt_ssid=ayx9x7bsmklbow5mzwfazvxlcpbpanfa_2018-06-06; _utrace=a7f8d5f9dbef47ef54cd50fc0ce968d3_2018-06-06; snsInfo[101204453]=%7B%22city%22%3A%22%E6%B5%B7%E6%B7%80%22%2C%22eleme_key%22%3A%2221f46d91e39572beef35009e5baf886e%22%2C%22figureurl%22%3A%22http%3A%2F%2Fqzapp.qlogo.cn%2Fqzapp%2F101204453%2FEA596CEA62B870E021C85C6B0B17DDE4%2F30%22%2C%22figureurl_1%22%3A%22http%3A%2F%2Fqzapp.qlogo.cn%2Fqzapp%2F101204453%2FEA596CEA62B870E021C85C6B0B17DDE4%2F50%22%2C%22figureurl_2%22%3A%22http%3A%2F%2Fqzapp.qlogo.cn%2Fqzapp%2F101204453%2FEA596CEA62B870E021C85C6B0B17DDE4%2F100%22%2C%22figureurl_qq_1%22%3A%22http%3A%2F%2Fthirdqq.qlogo.cn%2Fqqapp%2F101204453%2FEA596CEA62B870E021C85C6B0B17DDE4%2F40%22%2C%22figureurl_qq_2%22%3A%22http%3A%2F%2Fthirdqq.qlogo.cn%2Fqqapp%2F101204453%2FEA596CEA62B870E021C85C6B0B17DDE4%2F100%22%2C%22gender%22%3A%22%E5%A5%B3%22%2C%22is_lost%22%3A0%2C%22is_yellow_vip%22%3A%220%22%2C%22is_yellow_year_vip%22%3A%220%22%2C%22level%22%3A%220%22%2C%22msg%22%3A%22%22%2C%22nickname%22%3A%22%E6%98%A5%E6%9A%96%E8%8A%B1%E5%BC%80%22%2C%22openid%22%3A%22EA596CEA62B870E021C85C6B0B17DDE4%22%2C%22province%22%3A%22%E5%8C%97%E4%BA%AC%22%2C%22ret%22%3A0%2C%22vip%22%3A%220%22%2C%22year%22%3A%222000%22%2C%22yellow_vip_level%22%3A%220%22%2C%22name%22%3A%22%E6%98%A5%E6%9A%96%E8%8A%B1%E5%BC%80%22%2C%22avatar%22%3A%22http%3A%2F%2Fthirdqq.qlogo.cn%2Fqqapp%2F101204453%2FEA596CEA62B870E021C85C6B0B17DDE4%2F40%22%7D";
@@ -71,8 +71,8 @@ public class ElemeLocal {
 
 
     public static void main(String[] args) throws IOException {
-        elemeLocal.getMaxHongBao(phoneNum,url);
-//        formatConversion(cookie10);
+//        elemeLocal.getMaxHongBao(phoneNum,url);
+//        formatConversion(cookie13);
 //        logger.info("ssss");
 //        getHongbao(url,"4081BAC79C018D7FDC3774A5634C6256","8c427198a6578e0c1db172a81f5c00a2",randomPhoneNum(),"灭霸");
     }
@@ -100,7 +100,7 @@ public class ElemeLocal {
 
 
 
-                residueNumAndMoney = getHongbao(url,avatar,sign,randomPhoneNum(),"灭霸");     //调用领红包方法兵获取领红包方法返回的剩余领取次数与金额
+                residueNumAndMoney = getHongbao(url,avatar,sign,randomPhoneNum(),"灭霸1");     //调用领红包方法兵获取领红包方法返回的剩余领取次数与金额
                 if((int)residueNumAndMoney[0] == lastResidueNum){		//判断剩余领取次数是否与上次相同，如果相同则领取错误次数+1
 
                     errorUrlExponent++;
