@@ -17,7 +17,7 @@ public class HongbaoController {
 
     @RequestMapping(value = "/" )  
     public String index() throws IOException{  
-        return "hongbao";  
+        return "index";
     } 
     
 	@RequestMapping(value = "/getHongbao", method = RequestMethod.POST)

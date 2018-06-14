@@ -13,6 +13,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.net.URLDecoder;
@@ -21,16 +22,16 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+@Component
 public class ElemeLocal {
 
-    private final static String url="https://h5.ele.me/hongbao/#hardware_id=&is_lucky_group=True&lucky_number=9&track_id=&platform=0&sn=29f8b4dbec9f9ca4&theme_id=2593&device_id=&refer_user_id=207119419";
+    private final static String url="https://h5.ele.me/hongbao/#hardware_id=&is_lucky_group=True&lucky_number=10&track_id=&platform=0&sn=29f9ba0ef1ae6c5b&theme_id=2697&device_id=&refer_user_id=38644849";
     private final static String avatar="oEGLvjtqLPOAsdbw5cfL5ULIaamQ";
     private final static String sign="871b241db0bd50ff1ad12a51eef69d9f";
-    private final static String phoneNum="18521068247";
+    private final static String phoneNum="17721016460";
 
     private final static String cookie1="perf_ssid=54m3ygak5hvms6tj5bf00qtq665ky429_2018-06-06; ubt_ssid=ayx9x7bsmklbow5mzwfazvxlcpbpanfa_2018-06-06; _utrace=a7f8d5f9dbef47ef54cd50fc0ce968d3_2018-06-06; snsInfo[101204453]=%7B%22city%22%3A%22%22%2C%22eleme_key%22%3A%2216ef68c28b9a08426dbe9d7f6a6a5584%22%2C%22figureurl%22%3A%22http%3A%2F%2Fqzapp.qlogo.cn%2Fqzapp%2F101204453%2F72CECABFB39F2DC214A9C354648CE258%2F30%22%2C%22figureurl_1%22%3A%22http%3A%2F%2Fqzapp.qlogo.cn%2Fqzapp%2F101204453%2F72CECABFB39F2DC214A9C354648CE258%2F50%22%2C%22figureurl_2%22%3A%22http%3A%2F%2Fqzapp.qlogo.cn%2Fqzapp%2F101204453%2F72CECABFB39F2DC214A9C354648CE258%2F100%22%2C%22figureurl_qq_1%22%3A%22http%3A%2F%2Fthirdqq.qlogo.cn%2Fqqapp%2F101204453%2F72CECABFB39F2DC214A9C354648CE258%2F40%22%2C%22figureurl_qq_2%22%3A%22http%3A%2F%2Fthirdqq.qlogo.cn%2Fqqapp%2F101204453%2F72CECABFB39F2DC214A9C354648CE258%2F100%22%2C%22gender%22%3A%22%E7%94%B7%22%2C%22is_lost%22%3A0%2C%22is_yellow_vip%22%3A%220%22%2C%22is_yellow_year_vip%22%3A%220%22%2C%22level%22%3A%220%22%2C%22msg%22%3A%22%22%2C%22nickname%22%3A%22%E8%BD%BB%E8%88%9E%E9%A3%9E%E6%89%AC%22%2C%22openid%22%3A%2272CECABFB39F2DC214A9C354648CE258%22%2C%22province%22%3A%22%22%2C%22ret%22%3A0%2C%22vip%22%3A%220%22%2C%22year%22%3A%221990%22%2C%22yellow_vip_level%22%3A%220%22%2C%22name%22%3A%22%E8%BD%BB%E8%88%9E%E9%A3%9E%E6%89%AC%22%2C%22avatar%22%3A%22http%3A%2F%2Fthirdqq.qlogo.cn%2Fqqapp%2F101204453%2F72CECABFB39F2DC214A9C354648CE258%2F40%22%7D";
     private final static String cookie2="perf_ssid=54m3ygak5hvms6tj5bf00qtq665ky429_2018-06-06; ubt_ssid=ayx9x7bsmklbow5mzwfazvxlcpbpanfa_2018-06-06; _utrace=a7f8d5f9dbef47ef54cd50fc0ce968d3_2018-06-06; snsInfo[101204453]=%7B%22city%22%3A%22%E6%B5%B7%E6%B7%80%22%2C%22eleme_key%22%3A%2221f46d91e39572beef35009e5baf886e%22%2C%22figureurl%22%3A%22http%3A%2F%2Fqzapp.qlogo.cn%2Fqzapp%2F101204453%2FEA596CEA62B870E021C85C6B0B17DDE4%2F30%22%2C%22figureurl_1%22%3A%22http%3A%2F%2Fqzapp.qlogo.cn%2Fqzapp%2F101204453%2FEA596CEA62B870E021C85C6B0B17DDE4%2F50%22%2C%22figureurl_2%22%3A%22http%3A%2F%2Fqzapp.qlogo.cn%2Fqzapp%2F101204453%2FEA596CEA62B870E021C85C6B0B17DDE4%2F100%22%2C%22figureurl_qq_1%22%3A%22http%3A%2F%2Fthirdqq.qlogo.cn%2Fqqapp%2F101204453%2FEA596CEA62B870E021C85C6B0B17DDE4%2F40%22%2C%22figureurl_qq_2%22%3A%22http%3A%2F%2Fthirdqq.qlogo.cn%2Fqqapp%2F101204453%2FEA596CEA62B870E021C85C6B0B17DDE4%2F100%22%2C%22gender%22%3A%22%E5%A5%B3%22%2C%22is_lost%22%3A0%2C%22is_yellow_vip%22%3A%220%22%2C%22is_yellow_year_vip%22%3A%220%22%2C%22level%22%3A%220%22%2C%22msg%22%3A%22%22%2C%22nickname%22%3A%22%E6%98%A5%E6%9A%96%E8%8A%B1%E5%BC%80%22%2C%22openid%22%3A%22EA596CEA62B870E021C85C6B0B17DDE4%22%2C%22province%22%3A%22%E5%8C%97%E4%BA%AC%22%2C%22ret%22%3A0%2C%22vip%22%3A%220%22%2C%22year%22%3A%222000%22%2C%22yellow_vip_level%22%3A%220%22%2C%22name%22%3A%22%E6%98%A5%E6%9A%96%E8%8A%B1%E5%BC%80%22%2C%22avatar%22%3A%22http%3A%2F%2Fthirdqq.qlogo.cn%2Fqqapp%2F101204453%2FEA596CEA62B870E021C85C6B0B17DDE4%2F40%22%7D";
-
     private final static String cookie3="perf_ssid=5k3dq4futhfhr534s2dfda5v8xo4fbfr_2018-06-07; ubt_ssid=ofo879seroylcmsuivfcybb6fd641tjt_2018-06-07; _utrace=a4ca7b788f8c1f55b79d81047f55dde8_2018-06-07; track_id=1528357175|6e203c7f0763d896088a5721df995b288e4c20eea28f450135|f55b32a47a6461026f4d68535b60b90b; snsInfo[101204453]=%7B%22city%22%3A%22%E5%AE%9C%E6%98%8C%22%2C%22eleme_key%22%3A%223f27bc13390d71c200fd5da035c99097%22%2C%22figureurl%22%3A%22http%3A%2F%2Fqzapp.qlogo.cn%2Fqzapp%2F101204453%2FA14EA9AB5E8036A582B6E968555D59D2%2F30%22%2C%22figureurl_1%22%3A%22http%3A%2F%2Fqzapp.qlogo.cn%2Fqzapp%2F101204453%2FA14EA9AB5E8036A582B6E968555D59D2%2F50%22%2C%22figureurl_2%22%3A%22http%3A%2F%2Fqzapp.qlogo.cn%2Fqzapp%2F101204453%2FA14EA9AB5E8036A582B6E968555D59D2%2F100%22%2C%22figureurl_qq_1%22%3A%22http%3A%2F%2Fthirdqq.qlogo.cn%2Fqqapp%2F101204453%2FA14EA9AB5E8036A582B6E968555D59D2%2F40%22%2C%22figureurl_qq_2%22%3A%22http%3A%2F%2Fthirdqq.qlogo.cn%2Fqqapp%2F101204453%2FA14EA9AB5E8036A582B6E968555D59D2%2F100%22%2C%22gender%22%3A%22%E7%94%B7%22%2C%22is_lost%22%3A0%2C%22is_yellow_vip%22%3A%220%22%2C%22is_yellow_year_vip%22%3A%220%22%2C%22level%22%3A%220%22%2C%22msg%22%3A%22%22%2C%22nickname%22%3A%22%E9%A3%98%E9%9B%AA%E6%97%A0%E7%97%95%22%2C%22openid%22%3A%22A14EA9AB5E8036A582B6E968555D59D2%22%2C%22province%22%3A%22%E6%B9%96%E5%8C%97%22%2C%22ret%22%3A0%2C%22vip%22%3A%220%22%2C%22year%22%3A%221989%22%2C%22yellow_vip_level%22%3A%220%22%2C%22name%22%3A%22%E9%A3%98%E9%9B%AA%E6%97%A0%E7%97%95%22%2C%22avatar%22%3A%22http%3A%2F%2Fthirdqq.qlogo.cn%2Fqqapp%2F101204453%2FA14EA9AB5E8036A582B6E968555D59D2%2F40%22%7D";
     private final static String cookie4="perf_ssid=0ky9ubh0his70brawx8vtjcxxbrr1e4k_2018-06-07; ubt_ssid=qcnrya79oa8yogglixmgdywv6qxctpnk_2018-06-07; _utrace=78eac52137b029470c826dc15663c895_2018-06-07; track_id=1528357929|a546a8af6a7e60ca7e61b14bb1e87c1b1f7d57382cfa11402a|d70a71c966f6fd9cdd2343ada6dda88c; snsInfo[101204453]=%7B%22city%22%3A%22%E5%AE%9C%E6%98%8C%22%2C%22eleme_key%22%3A%228c427198a6578e0c1db172a81f5c00a2%22%2C%22figureurl%22%3A%22http%3A%2F%2Fqzapp.qlogo.cn%2Fqzapp%2F101204453%2F4081BAC79C018D7FDC3774A5634C6256%2F30%22%2C%22figureurl_1%22%3A%22http%3A%2F%2Fqzapp.qlogo.cn%2Fqzapp%2F101204453%2F4081BAC79C018D7FDC3774A5634C6256%2F50%22%2C%22figureurl_2%22%3A%22http%3A%2F%2Fqzapp.qlogo.cn%2Fqzapp%2F101204453%2F4081BAC79C018D7FDC3774A5634C6256%2F100%22%2C%22figureurl_qq_1%22%3A%22http%3A%2F%2Fthirdqq.qlogo.cn%2Fqqapp%2F101204453%2F4081BAC79C018D7FDC3774A5634C6256%2F40%22%2C%22figureurl_qq_2%22%3A%22http%3A%2F%2Fthirdqq.qlogo.cn%2Fqqapp%2F101204453%2F4081BAC79C018D7FDC3774A5634C6256%2F100%22%2C%22gender%22%3A%22%E5%A5%B3%22%2C%22is_lost%22%3A0%2C%22is_yellow_vip%22%3A%220%22%2C%22is_yellow_year_vip%22%3A%220%22%2C%22level%22%3A%220%22%2C%22msg%22%3A%22%22%2C%22nickname%22%3A%22%E7%B3%8A%E8%BF%9C%E8%BF%9C%22%2C%22openid%22%3A%224081BAC79C018D7FDC3774A5634C6256%22%2C%22province%22%3A%22%E6%B9%96%E5%8C%97%22%2C%22ret%22%3A0%2C%22vip%22%3A%220%22%2C%22year%22%3A%221989%22%2C%22yellow_vip_level%22%3A%220%22%2C%22name%22%3A%22%E7%B3%8A%E8%BF%9C%E8%BF%9C%22%2C%22avatar%22%3A%22http%3A%2F%2Fthirdqq.qlogo.cn%2Fqqapp%2F101204453%2F4081BAC79C018D7FDC3774A5634C6256%2F40%22%7D";
     private final static String cookie5="perf_ssid=cgec9q8phn9j5vqkxn9gzhw3335z67f9_2018-06-07; ubt_ssid=wqibwi48vews42j0dbqsx8v5ixaenfp1_2018-06-07; _utrace=b98c5f68478741f972a81a2fecd2a178_2018-06-07; track_id=1528360724|57a494c34d84aeacea5ebbafff03af86333a03b45b61ea9fe7|1875ae7742b147b004fbcaef5f760112; snsInfo[101204453]=%7B%22city%22%3A%22%22%2C%22eleme_key%22%3A%221679fdc8205c93070901f7ad5bc3ef72%22%2C%22figureurl%22%3A%22http%3A%2F%2Fqzapp.qlogo.cn%2Fqzapp%2F101204453%2F083B145F6F74E2B9A653E6F46EB5279F%2F30%22%2C%22figureurl_1%22%3A%22http%3A%2F%2Fqzapp.qlogo.cn%2Fqzapp%2F101204453%2F083B145F6F74E2B9A653E6F46EB5279F%2F50%22%2C%22figureurl_2%22%3A%22http%3A%2F%2Fqzapp.qlogo.cn%2Fqzapp%2F101204453%2F083B145F6F74E2B9A653E6F46EB5279F%2F100%22%2C%22figureurl_qq_1%22%3A%22http%3A%2F%2Fthirdqq.qlogo.cn%2Fqqapp%2F101204453%2F083B145F6F74E2B9A653E6F46EB5279F%2F40%22%2C%22figureurl_qq_2%22%3A%22http%3A%2F%2Fthirdqq.qlogo.cn%2Fqqapp%2F101204453%2F083B145F6F74E2B9A653E6F46EB5279F%2F100%22%2C%22gender%22%3A%22%E7%94%B7%22%2C%22is_lost%22%3A0%2C%22is_yellow_vip%22%3A%220%22%2C%22is_yellow_year_vip%22%3A%220%22%2C%22level%22%3A%220%22%2C%22msg%22%3A%22%22%2C%22nickname%22%3A%22snow%22%2C%22openid%22%3A%22083B145F6F74E2B9A653E6F46EB5279F%22%2C%22province%22%3A%22%22%2C%22ret%22%3A0%2C%22vip%22%3A%220%22%2C%22year%22%3A%220%22%2C%22yellow_vip_level%22%3A%220%22%2C%22name%22%3A%22snow%22%2C%22avatar%22%3A%22http%3A%2F%2Fthirdqq.qlogo.cn%2Fqqapp%2F101204453%2F083B145F6F74E2B9A653E6F46EB5279F%2F40%22%7D";
@@ -70,14 +71,14 @@ public class ElemeLocal {
 
 
     public static void main(String[] args) throws IOException {
-//        elemeLocal.getMaxHongBao();
+        elemeLocal.getMaxHongBao(phoneNum,url);
 //        formatConversion(cookie10);
-        logger.info("ssss");
+//        logger.info("ssss");
 //        getHongbao(url,"4081BAC79C018D7FDC3774A5634C6256","8c427198a6578e0c1db172a81f5c00a2",randomPhoneNum(),"灭霸");
     }
 
 
-    public String getMaxHongBao() throws IOException {
+    public String getMaxHongBao(String phoneNum,String url) throws IOException {
         int errorUrlExponent = 0;	//错误链接指数，如果该指数等于三表明这是一个异常的链接
         int suspectedErrorId = 0;	//疑似错误Id
         int lastResidueNum = 16;	//上一次领取时的剩余次数,默认为16,因为红包最大个数为15
@@ -190,12 +191,12 @@ public class ElemeLocal {
 
             //识别已领取红包数量
             int count = StringUtils.countMatches(responseBody,"\"sns_username\"");
-
+            logger.info("识别已领取红包数量:{}",count);
             String luckyNum = getLuckyNum(url);	 //识别第几个为大红包
-
+            logger.info("识别第几个为大红包:{}",luckyNum);
             //识别本次领取红包金额
             String hongbaoSum = getHongbaoSum(responseBody);
-
+            logger.info("还剩几个:{}",Integer.parseInt(luckyNum) - count);
 
             Object[] rt = {Integer.parseInt(luckyNum) - count,hongbaoSum};
             Object[] rtFalse = {-400,0};   //防止恶意提交链接

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 响应式 meta标签 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/hongbao.css">
+    <!--<script>-->
+    <!--function getHongbao(){-->
+    <!--if(checkForm() && document.getElementById("check").value == "0"){		//通过检测value的办法防止重复点击-->
+    <!--document.getElementById("check").value = "1";-->
+    <!--var form = new FormData(document.getElementById("formHongbao"));-->
+    <!--var xmlHttp = new XMLHttpRequest();-->
+    <!--xmlHttp.open("post", "eleme/getElemeHongBao", false);-->
+    <!--xmlHttp.onreadystatechange=function(){-->
+    <!--if(xmlHttp.readyState==4 && xmlHttp.status==200){-->
+    <!--alert(xmlHttp.responseText+"\n\n具体金额请以实际到账金额为准");-->
+    <!--}-->
+    <!--}-->
+    <!--xmlHttp.send(form);-->
+    <!--document.getElementById("check").value = "0";-->
+    <!--document.getElementById("url").value = "";		//领取完后自动清空URL中的内容，防止误触-->
+    <!--}-->
+    <!--}-->
+
+
+    <!--</script>-->
+</head>
+<!-- 背景图片 -->
+<body style="background-image:url(images/1.jpg);">
+
+<div class=".container-fluid" align="center">
+    <h1 style="margin-top:3%;color:#463f39;font-size:45px;font-family:Sans-serif">饿了么红包领取</h1>
+
+    <div class="highlight border border-secondary" style="padding:1rem;">
+        <form id="formHongbao">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">手机号</span>
+                </div>
+                <input oninput="checkForm()" type="text" class="form-control" placeholder="" name="phone" id="phone">
+            </div>
+            <div class="input-group mb-3" style="height:160px">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">输入红包链接</span>
+                </div>
+                <textarea oninput="checkForm(),urlExpand()" class="form-control " placeholder="" name="url"
+                          id="url"></textarea>
+            </div>
+            <div align="left">
+
+                <input type="button" class="btn btn-secondary float-right" value="领取红包" onclick="getHongbao()"
+                       id="get"/>
+            </div>
+        </form>
+    </div>
+
+
+</div>
+
+
+<!-- jQuery,Popper JS,Bootstrap JS -->
+<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script type="text/javascript">
+    //Popover插件加载
+    $(function () {
+        $("[data-toggle='popover']").popover();
+
+
+        $('#myTab a').on('click', function (e) {
+            e.preventDefault()
+            $(this).tab('show')
+        })
+
+
+        //ajax提交表单
+        function getHongbao() {
+            if (checkForm() && document.getElementById("check").value == "0") {		//通过检测value的办法防止重复点击
+                document.getElementById("check").value = "1";
+                var form = new FormData(document.getElementById("formHongbao"));
+                var xmlHttp = new XMLHttpRequest();
+                xmlHttp.open("post", "eleme/getElemeHongBao", false);
+                xmlHttp.onreadystatechange = function () {
+                    if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                        alert(xmlHttp.responseText + "\n\n具体金额请以实际到账金额为准");
+                    }
+                }
+                xmlHttp.send(form);
+                document.getElementById("check").value = "0";
+                document.getElementById("url").value = "";		//领取完后自动清空URL中的内容，防止误触
+            }
+        }
+
+        //将短链接转换为长链接
+        function getLongUrl() {
+            $(function () {
+                var shortUrl = $("#url").val();
+                $.ajax({
+                    url: "http://api.weibo.com/2/short_url/shorten.json?source=2849184197&url_long=" + shortUrl,
+                    type: "GET",
+                    dataType: 'jsonp',
+                    cache: true,
+                    crossDomain: true,
+                    success: function (data) {
+                        if (data.data.urls[0].url_long == "https://url.cn/sorry") {
+                            $("#url").val("");
+                            alert("错误的短连接");
+                        }
+                        else {
+                            $("#url").val(data.data.urls[0].url_long); //处理返回数据，显示到网页上
+                            checkForm();
+                        }
+                    },
+                    error: function () {
+                        alert("错误的短链接");
+                    }
+                });
+            });
+        }
+
+        //获取领取记录
+        function getRecord() {
+
+        }
+
+
+        //判断手机号格式
+        function checkPhone() {
+            var v = document.getElementById("phone").value;
+            if (!isNaN(v) && v.length == 11 && v[0] == 1) {	//如果是数字并且长度等于11并且第一个数字为1
+                normalColor("phone");
+                return true;
+            } else if (v == "") {
+                normalColor("phone");
+                return false;
+            } else {
+                warningColor("phone");
+                return false;
+            }
+        }
+
+        //判断url格式
+        function checkUrl() {
+            var v = document.getElementById("url").value;
+            var reg1 = /lucky_number/;
+            var reg2 = /https:\/\/h5.ele.me\/hongbao\//;
+            if ((reg1.test(v) && reg2.test(v))) {
+                normalColor("url");
+                return true;
+            } else if (v == "") {
+                normalColor("url");
+                return false;
+            } else {
+                warningColor("url");
+                return false;
+            }
+        }
+
+        //检测并转换短连接
+        function urlExpand() {
+            var url = document.getElementById("url").value;
+            var reg = /url.cn/;
+            if (reg.test(url)) {
+                normalColor("url");
+                getLongUrl();
+            }
+        }
+
+        //格式错误显示颜色
+        function warningColor(id) {
+            document.getElementById(id).style.backgroundColor = "#dd3444";
+            document.getElementById(id).style.color = "white";
+        }
+
+        //格式正确显示颜色
+        function normalColor(id) {
+            document.getElementById(id).style.backgroundColor = "white";
+            document.getElementById(id).style.color = "#6c757d";
+        }
+
+        //表单检测
+        function checkForm() {
+            var urltip = checkUrl();
+            var phonetip = checkPhone();
+            if (urltip && phonetip) {
+                document.getElementById("get").disabled = false;
+                return true;
+            } else {
+                document.getElementById("get").disabled = true;
+                return false;
+            }
+        }
+    }
+</script>
+</body>
+</html>

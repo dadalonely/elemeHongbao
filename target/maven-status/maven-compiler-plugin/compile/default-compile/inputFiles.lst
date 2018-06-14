@@ -8,12 +8,15 @@ G:\my_code\elemeHongbao\src\main\java\com\eleme\ElemeApplication.java
 G:\my_code\elemeHongbao\src\main\java\com\eleme\dao\RecordDao.java
 G:\my_code\elemeHongbao\src\main\java\com\eleme\web\StatController.java
 G:\my_code\elemeHongbao\src\main\java\com\eleme\service\AltService.java
+G:\my_code\elemeHongbao\src\main\java\com\eleme\service\ElemeService.java
 G:\my_code\elemeHongbao\src\main\java\com\eleme\dto\UserInfo.java
 G:\my_code\elemeHongbao\src\main\java\com\eleme\service\impl\DonateServiceImpl.java
 G:\my_code\elemeHongbao\src\main\java\com\eleme\dao\AltDao.java
+G:\my_code\elemeHongbao\src\main\java\com\eleme\service\impl\ElemeServiceImpl.java
 G:\my_code\elemeHongbao\src\main\java\com\eleme\service\DonateService.java
 G:\my_code\elemeHongbao\src\main\java\com\eleme\service\impl\AltServiceImpl.java
 G:\my_code\elemeHongbao\src\main\java\com\eleme\service\impl\StatServiceImpl.java
+G:\my_code\elemeHongbao\src\main\java\com\eleme\web\ElemeController.java
 G:\my_code\elemeHongbao\src\main\java\com\eleme\ElemeLocal.java
 G:\my_code\elemeHongbao\src\main\java\com\eleme\dao\DonateDao.java
 G:\my_code\elemeHongbao\src\main\java\com\eleme\dao\AdvertisingDao.java
