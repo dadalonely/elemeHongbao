@@ -15,7 +15,10 @@ com\eleme\service\AltService.class
 com\eleme\service\impl\StatServiceImpl.class
 com\eleme\web\AltController.class
 com\eleme\dao\AltDao.class
+com\eleme\service\impl\ElemeServiceImpl.class
 com\eleme\service\StatService.class
 com\eleme\service\DonateService.class
+com\eleme\service\ElemeService.class
 com\eleme\dao\RecordDao.class
 com\eleme\dto\UserInfo.class
+com\eleme\web\ElemeController.class
