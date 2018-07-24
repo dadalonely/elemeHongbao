@@ -1,9 +1,12 @@
+com\eleme\entity\BaseEntity.class
 com\eleme\service\impl\AltServiceImpl.class
 com\eleme\web\StatController.class
+com\eleme\constant\StatusCode.class
 com\eleme\web\HongbaoController.class
 com\eleme\web\DonateController.class
 com\eleme\entity\Alt.class
 com\eleme\service\impl\HongbaoServiceImpl.class
+com\eleme\entity\ElemeUrl.class
 com\eleme\dao\DonateDao.class
 com\eleme\service\HongbaoService.class
 com\eleme\service\impl\DonateServiceImpl.class
@@ -11,6 +14,7 @@ com\eleme\dao\AdvertisingDao.class
 com\eleme\ElemeApplication.class
 com\eleme\ElemeLocal.class
 com\eleme\entity\Donate.class
+com\eleme\dto\ResponseEntityDto.class
 com\eleme\service\AltService.class
 com\eleme\service\impl\StatServiceImpl.class
 com\eleme\web\AltController.class
@@ -20,5 +24,8 @@ com\eleme\service\StatService.class
 com\eleme\service\DonateService.class
 com\eleme\service\ElemeService.class
 com\eleme\dao\RecordDao.class
+com\eleme\service\impl\ElemeUrlServiceImpl.class
 com\eleme\dto\UserInfo.class
+com\eleme\service\ElemeUrlService.class
+com\eleme\dao\ElemeUrlDao.class
 com\eleme\web\ElemeController.class

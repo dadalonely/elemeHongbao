@@ -49,7 +49,7 @@ public class ElemeController {
     public String getVipMaxHongBao(String phone) {
         logger.info("phone:{}", phone);
         if (StringUtils.isBlank(phone) ) {
-            return "手机号或者链接为空";
+            phone="17721016460";
         }
         try {
             String result = elemeLocal.getVipMaxHongBao(phone);

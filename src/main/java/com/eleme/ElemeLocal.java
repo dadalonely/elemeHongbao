@@ -33,11 +33,12 @@ import java.util.regex.Pattern;
 @Component
 public class ElemeLocal {
 
-    private final static String url = "https://h5.ele.me/hongbao/#hardware_id=&is_lucky_group=True&lucky_number=6&track_id=&platform=0&sn=10f600ad352a2806&theme_id=2705&device_id=&refer_user_id=36211878";
+    private final static String url = "https://h5.ele.me/hongbao/#hardware_id=&is_lucky_group=True&lucky_number=8&track_id=&platform=0&sn=2a00c9ef5f1e6c39&theme_id=2833&device_id=&refer_user_id=28879908";
     private final static String avatar = "A77F4A1981987D0B368130493C1FCE8B";
     private final static String sign = "da652fbe1b8b681505b0e64c883c4730";
-//    private final static String phoneNum = "18221741421";//骆云辉
+//        private final static String phoneNum = "18221741421";//骆云辉
     private final static String phoneNum = "17721016460";//最帅的
+//private final static String phoneNum = "18521068247";//王会
     /**
      * 轻舞飞扬
      */
@@ -69,7 +70,7 @@ public class ElemeLocal {
 
     private static List<String> userList;
     private static ElemeLocal elemeLocal;
-    private static List<Map<String,String>> userMap;
+    private static List<Map<String, String>> userMap;
 
 
     @Resource
@@ -92,7 +93,7 @@ public class ElemeLocal {
 //        userList.add(cookie13);
 
         try {
-            userMap=new ArrayList();
+            userMap = new ArrayList();
             Map<String, String> map1 = formatConversion(cookie1);
             Map<String, String> map2 = formatConversion(cookie2);
             Map<String, String> map3 = formatConversion(cookie3);
@@ -104,8 +105,8 @@ public class ElemeLocal {
             Map<String, String> map9 = formatConversion(cookie9);
             Map<String, String> map10 = formatConversion(cookie10);
             Map<String, String> map11 = formatConversion(cookie11);
-            Map<String, String> map12= formatConversion(cookie12);
-            Map<String, String> map13= formatConversion(cookie13);
+            Map<String, String> map12 = formatConversion(cookie12);
+            Map<String, String> map13 = formatConversion(cookie13);
             userMap.add(map1);
             userMap.add(map2);
             userMap.add(map3);
@@ -119,8 +120,6 @@ public class ElemeLocal {
             userMap.add(map11);
             userMap.add(map12);
             userMap.add(map13);
-
-
 
 
         } catch (IOException e) {
@@ -161,14 +160,14 @@ public class ElemeLocal {
 //            while(true){
             if (change != 0) {
                 try {
-                    Thread.sleep(2000);
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
             if (change > 11) {
-                    change=0;
-                }
+                change = 0;
+            }
 //                if(change>11){
 //                    return  "次数用尽";
 //                }
@@ -177,10 +176,10 @@ public class ElemeLocal {
 //                }
 //                Map<String, String> map = formatConversion(userList.get(change));
             Map<String, String> map = userMap.get(change);
-                if (null == map || map.size() == 0) {
-                    System.out.println("根据cookie获取为空");
-                    return "根据cookie获取为空";
-                }
+            if (null == map || map.size() == 0) {
+                System.out.println("根据cookie获取为空");
+                return "根据cookie获取为空";
+            }
 //                String avatar=list.get(0);
 //                String sign=list.get(1);
 //            map.put("avatar",avatar);
@@ -189,9 +188,9 @@ public class ElemeLocal {
 //            map.put("weixin_avatar",userInfo.getString("avatar"));
 
 //
-                String rnadomPhone = randomPhoneNum();
+            String rnadomPhone = randomPhoneNum();
 //                changePhoneNum(rnadomPhone, map.get("avatar"), map.get("elemeKey"));    //修改为目标手机号
-                residueNumAndMoney = getHongbao("",url, map.get("avatar"), map.get("elemeKey"), rnadomPhone, map.get("name"), map.get("weixin_avatar"));     //调用领红包方法兵获取领红包方法返回的剩余领取次数与金额
+            residueNumAndMoney = getHongbao("", url, map.get("avatar"), map.get("elemeKey"), rnadomPhone, map.get("name"), map.get("weixin_avatar"));     //调用领红包方法兵获取领红包方法返回的剩余领取次数与金额
 
 //                if((int)residueNumAndMoney[0] == lastResidueNum){		//判断剩余领取次数是否与上次相同，如果相同则领取错误次数+1
 //
@@ -204,77 +203,75 @@ public class ElemeLocal {
 //                    return "异常链接，请再次尝试领取，如果第二次尝试仍然失败请不要再使用此链接";
 //                }
 //                lastResidueNum = (int)residueNumAndMoney[0];
-                change++;
-                errorUrlExponent++;
-                if ((int) residueNumAndMoney[0] == 1) {        //如果剩余次数等于一，此时需要将小号的PhoneNum修改为目标手机号再领取
+            change++;
+            errorUrlExponent++;
+            if ((int) residueNumAndMoney[0] == 1) {        //如果剩余次数等于一，此时需要将小号的PhoneNum修改为目标手机号再领取
 
 
-                    changePhoneNum(phoneNum, this.avatar, this.sign);    //修改为目标手机号
-                    residueNumAndMoney = getHongbao("",url, this.avatar, this.sign, phoneNum, "飘雪","");        //调用领红包方法兵获取领红包方法返回的剩余领取次数与金额
-                    changePhoneNum(randomPhoneNum(), this.avatar, this.sign);    //修改为目标手机号
+                changePhoneNum(phoneNum, this.avatar, this.sign);    //修改为目标手机号
+                residueNumAndMoney = getHongbao("", url, this.avatar, this.sign, phoneNum, "飘雪", "");        //调用领红包方法兵获取领红包方法返回的剩余领取次数与金额
+                changePhoneNum(randomPhoneNum(), this.avatar, this.sign);    //修改为目标手机号
 
-                    if ((int) residueNumAndMoney[0] >= 1) {        //手机已经领取过此红包 或 你的手机号今日领取次数已达上限或小号领取次数耗尽，下面进行第二次尝试。
-                        try {
-                            Thread.sleep(5000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
+                if ((int) residueNumAndMoney[0] >= 1) {        //手机已经领取过此红包 或 你的手机号今日领取次数已达上限或小号领取次数耗尽，下面进行第二次尝试。
+                    try {
+                        Thread.sleep(5000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
 
-                        residueNumAndMoney = getHongbao("",url, this.avatar, this.sign, phoneNum, "飘雪","");        //调用领红包方法兵获取领红包方法返回的剩余领取次数与金额
+                    residueNumAndMoney = getHongbao("", url, this.avatar, this.sign, phoneNum, "飘雪", "");        //调用领红包方法兵获取领红包方法返回的剩余领取次数与金额
+
+                }
+                if ((int) residueNumAndMoney[0] >= 1) {    //第二次如果仍然领取失败
+
+                    return ("你的手机已经领取过此红包 或 你的手机号今日领取次数已达上限，亦或是系统错误，本红包下一个为大红包，可以发给你的朋友领哦~");
+                }
+                if ((int) residueNumAndMoney[0] == 0) {        //至此，红包领取成功，返回成功信息
+                    if (suspectedErrorId != 0) {        //如果疑似错误id不等于0说明上一次领取错误，将疑似错误Id的领取次数+1
 
                     }
-                    if ((int) residueNumAndMoney[0] >= 1) {    //第二次如果仍然领取失败
 
-                        return ("你的手机已经领取过此红包 或 你的手机号今日领取次数已达上限，亦或是系统错误，本红包下一个为大红包，可以发给你的朋友领哦~");
-                    }
-                    if ((int) residueNumAndMoney[0] == 0) {        //至此，红包领取成功，返回成功信息
-                        if (suspectedErrorId != 0) {        //如果疑似错误id不等于0说明上一次领取错误，将疑似错误Id的领取次数+1
+                    System.out.println("get bigHongbao succeed!");
+                    return ("红包领取成功,红包金额为：" + (String) residueNumAndMoney[1] + "元");
+                }
+                if ((int) residueNumAndMoney[0] < 0) {        //发生了未知的问题，有可能是被被人抢领了，这种情况几率比较小但是还是有可能的，建议使用自己发的红包。
 
-                        }
-
-                        System.out.println("get bigHongbao succeed!");
-                        return ("红包领取成功,红包金额为：" + (String) residueNumAndMoney[1] + "元");
-                    }
-                    if ((int) residueNumAndMoney[0] < 0) {        //发生了未知的问题，有可能是被被人抢领了，这种情况几率比较小但是还是有可能的，建议使用自己发的红包。
-
-                        System.out.println("unknow error!");
-                        return "发生了不可预见的错误";
-                    }
+                    System.out.println("unknow error!");
+                    return "发生了不可预见的错误";
                 }
             }
+        }
 //            if ((int) residueNumAndMoney[0] == -400) {
 //
 //                System.out.println("malicious url!");
 //                return "错误的链接，请检查你的链接是否可用";
 //            }
 
-            System.out.println("not have bigHongbao!");
-            return "此红包大红包已被领取!";
-        }
-
-
+        System.out.println("not have bigHongbao!");
+        return "此红包大红包已被领取!";
+    }
 
 
     public String getVipMaxHongBao(String phoneNum) throws IOException {
 //        ResponseEntityDto responseEntityDto=new ResponseEntityDto();
-        List<ElemeUrl> list=elemeUrlService.getAllEffectUrl();
-        logger.info("链接：{}",JSONObject.toJSONString(list));
-        if(null==list||list.size()==0){
+        List<ElemeUrl> list = elemeUrlService.getAllEffectUrl();
+        logger.info("链接：{}", JSONObject.toJSONString(list));
+        if (null == list || list.size() == 0) {
 
             return "链接用尽";
         }
-        String url="";
-        String id="";
-        for(ElemeUrl elemeUrl:list){
-            if(elemeUrl.getUrl().contains("https://h5.ele.me/hongbao/#hardware_id=")){
-                url=elemeUrl.getUrl();
-                id =elemeUrl.getId();
+        String url = "";
+        String id = "";
+        for (ElemeUrl elemeUrl : list) {
+            if (elemeUrl.getUrl().contains("https://h5.ele.me/hongbao/#hardware_id=")) {
+                url = elemeUrl.getUrl();
+                id = elemeUrl.getId();
                 break;
             }
 
         }
 
-        if(StringUtils.isBlank(url)){
+        if (StringUtils.isBlank(url)) {
             return "没可用链接";
         }
 
@@ -291,7 +288,7 @@ public class ElemeLocal {
             }
 
             if (change > 11) {
-                change=0;
+                change = 0;
             }
 
             Map<String, String> map = userMap.get(change);
@@ -306,7 +303,7 @@ public class ElemeLocal {
 //
             String rnadomPhone = randomPhoneNum();
 
-            residueNumAndMoney = getHongbao(id,url, map.get("avatar"), map.get("elemeKey"), rnadomPhone, map.get("name"), map.get("weixin_avatar"));     //调用领红包方法兵获取领红包方法返回的剩余领取次数与金额
+            residueNumAndMoney = getHongbao(id, url, map.get("avatar"), map.get("elemeKey"), rnadomPhone, map.get("name"), map.get("weixin_avatar"));     //调用领红包方法兵获取领红包方法返回的剩余领取次数与金额
 
 
             change++;
@@ -314,7 +311,7 @@ public class ElemeLocal {
 
 
                 changePhoneNum(phoneNum, this.avatar, this.sign);    //修改为目标手机号
-                residueNumAndMoney = getHongbao(id,url, this.avatar, this.sign, phoneNum, "飘雪","");        //调用领红包方法兵获取领红包方法返回的剩余领取次数与金额
+                residueNumAndMoney = getHongbao(id, url, this.avatar, this.sign, phoneNum, "飘雪", "");        //调用领红包方法兵获取领红包方法返回的剩余领取次数与金额
                 changePhoneNum(randomPhoneNum(), this.avatar, this.sign);    //修改为目标手机号
 
                 if ((int) residueNumAndMoney[0] >= 1) {        //手机已经领取过此红包 或 你的手机号今日领取次数已达上限或小号领取次数耗尽，下面进行第二次尝试。
@@ -325,7 +322,7 @@ public class ElemeLocal {
                         e.printStackTrace();
                     }
 
-                    residueNumAndMoney = getHongbao(id,url, this.avatar, this.sign, phoneNum, "飘雪","");        //调用领红包方法兵获取领红包方法返回的剩余领取次数与金额
+                    residueNumAndMoney = getHongbao(id, url, this.avatar, this.sign, phoneNum, "飘雪", "");        //调用领红包方法兵获取领红包方法返回的剩余领取次数与金额
 
                 }
 
@@ -342,87 +339,89 @@ public class ElemeLocal {
 
 
         System.out.println("not have bigHongbao!");
-       return "not have bigHongbao!";
+        return "not have bigHongbao!";
     }
 
 
-
-
-
-        public  Object[] getHongbao (String id,String url, String avatar, String sign, String phoneNum, String userName,String weixin_avatar) throws
-        IOException {
-            logger.info("****************************************************{}领取开始*******************************************************************************", userName);
-            try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
-                if(StringUtils.isBlank(weixin_avatar)){
-                    weixin_avatar="http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJZm9ichCcjvDJGkabJ6DEf089OXoCLJZezvq7jlfFTvx82AHBOEkVAnxHUHgt5dAgyk5ErHTb15kw/132";
-                }
-                String sn = url;
-                String regSn = "&sn=[0-9,a-z]+";
-                Pattern pSn = Pattern.compile(regSn);
-                Matcher mSn = pSn.matcher(sn);
-                while (mSn.find()) {
-                    sn = (mSn.group());
-                }
-                sn = sn.substring(4, sn.length());
-                HttpPost httpPost = new HttpPost("https://h5.ele.me/restapi//marketing/promotion/weixin/" + avatar);        //提交请求
-                StringEntity stringEntity = new StringEntity(
-                        "{\"group_sn\":\"" + sn + "\"," +
-                                "\"sign\":\"" + sign + "\"," +
+    public Object[] getHongbao(String id, String url, String avatar, String sign, String phoneNum, String userName, String weixin_avatar) throws
+            IOException {
+        logger.info("****************************************************{}领取开始*******************************************************************************", userName);
+        try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
+            if (StringUtils.isBlank(weixin_avatar)) {
+                weixin_avatar = "http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJZm9ichCcjvDJGkabJ6DEf089OXoCLJZezvq7jlfFTvx82AHBOEkVAnxHUHgt5dAgyk5ErHTb15kw/132";
+            }
+            String sn = url;
+            String regSn = "&sn=[0-9,a-z]+";
+            Pattern pSn = Pattern.compile(regSn);
+            Matcher mSn = pSn.matcher(sn);
+            while (mSn.find()) {
+                sn = (mSn.group());
+            }
+            sn = sn.substring(4, sn.length());
+            HttpPost httpPost = new HttpPost("https://h5.ele.me/restapi//marketing/promotion/weixin/" + avatar);        //提交请求
+            StringEntity stringEntity = new StringEntity(
+                    "{\"group_sn\":\"" + sn + "\"," +
+                            "\"sign\":\"" + sign + "\"," +
 //                            "\"phone\":\""+phoneNum+"\","+
-                                "\"phone\":\"\"," +
-                                "\"method\":\"phone\"," +
-                                "\"platform\":4," +
-                                "\"weixin_avatar\":\""+weixin_avatar+"\","+
+                            "\"phone\":\"\"," +
+                            "\"method\":\"phone\"," +
+                            "\"platform\":4," +
+                            "\"weixin_avatar\":\"" + weixin_avatar + "\"," +
 //                                "\"weixin_avatar\":\"http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJZm9ichCcjvDJGkabJ6DEf089OXoCLJZezvq7jlfFTvx82AHBOEkVAnxHUHgt5dAgyk5ErHTb15kw/132\"," +
-                                "\"weixin_username\":\"" + userName + "\"}", "UTF-8");
-                httpPost.setEntity(stringEntity);            //设置提交信息
-                //返回的信息responseHandler
-                ResponseHandler<String> responseHandler = response -> {
-                    int status = response.getStatusLine().getStatusCode();
-                    if (status >= 200 && status < 500) {
-                        HttpEntity entity = response.getEntity();
-                        return entity != null ? EntityUtils.toString(entity) : null;
-                    } else {
-                        throw new ClientProtocolException("Unexpected  response status: " + status);
-                    }
-                };
-                logger.info("请求参数：{}", JSON.toJSONString(stringEntity));
-                String responseBody = httpClient.execute(httpPost, responseHandler);
-                logger.info("返回参数:{}", responseBody);
-                JSONObject res=JSONObject.parseObject(responseBody);
-                String ret_code=res.getString("ret_code");
-                System.out.println("状态码ret_code："+ret_code);
-                if("10".equals(ret_code)){
-                    if(!phoneNum.equals(elemeLocal.phoneNum)){
-                        String rnadomPhone = elemeLocal.randomPhoneNum();
-                        elemeLocal.changePhoneNum(rnadomPhone,avatar, sign);    //修改为目标手机号
-                    }
-
-                }
-                boolean is_luck=res.getBoolean("is_lucky");
-                if(StringUtils.isNotBlank(id) &&(is_luck=true)){
-
-                    elemeUrlService.updateElemeUrlById(id);
-
-                }
-                //识别已领取红包数量
-                int count = StringUtils.countMatches(responseBody, "\"sns_username\"");
-                logger.info("识别已领取红包数量:{}", count);
-                String luckyNum = getLuckyNum(url);     //识别第几个为大红包
-                logger.info("识别第几个为大红包:{}", luckyNum);
-                //识别本次领取红包金额
-                String hongbaoSum = getHongbaoSum(responseBody);
-                logger.info("还剩几个:{}", Integer.parseInt(luckyNum) - count);
-                logger.info("****************************************************{}领取结束*******************************************************************************", userName);
-                Object[] rt = {Integer.parseInt(luckyNum) - count, hongbaoSum};
-                Object[] rtFalse = {400, 0};   //防止恶意提交链接
-                if (count == 0) {
-                    return rtFalse;
+                            "\"weixin_username\":\"" + userName + "\"}", "UTF-8");
+            httpPost.setEntity(stringEntity);            //设置提交信息
+            //返回的信息responseHandler
+            ResponseHandler<String> responseHandler = response -> {
+                int status = response.getStatusLine().getStatusCode();
+                if (status >= 200 && status < 500) {
+                    HttpEntity entity = response.getEntity();
+                    return entity != null ? EntityUtils.toString(entity) : null;
                 } else {
-                    return rt;
+                    throw new ClientProtocolException("Unexpected  response status: " + status);
                 }
+            };
+            logger.info("请求参数：{}", JSON.toJSONString(stringEntity));
+            String responseBody = httpClient.execute(httpPost, responseHandler);
+            logger.info("返回参数:{}", responseBody);
+            JSONObject res = JSONObject.parseObject(responseBody);
+            String ret_code = res.getString("ret_code");
+            System.out.println("状态码ret_code：" + ret_code);
+            if ("10".equals(ret_code)) {
+                if (!phoneNum.equals(elemeLocal.phoneNum)) {
+                    String rnadomPhone = elemeLocal.randomPhoneNum();
+                    elemeLocal.changePhoneNum(rnadomPhone, avatar, sign);    //修改为目标手机号
+                }
+
+            }
+//                boolean is_luck=res.getBoolean("is_lucky");
+//                if(StringUtils.isNotBlank(id) &&(is_luck=true)){
+//
+//                    elemeUrlService.updateElemeUrlById(id);
+//
+//                }
+            //识别已领取红包数量
+            int count = StringUtils.countMatches(responseBody, "\"sns_username\"");
+            logger.info("识别已领取红包数量:{}", count);
+            String luckyNum = getLuckyNum(url);     //识别第几个为大红包
+            logger.info("识别第几个为大红包:{}", luckyNum);
+            //识别本次领取红包金额
+            String hongbaoSum = getHongbaoSum(responseBody);
+            logger.info("还剩几个:{}", Integer.parseInt(luckyNum) - count);
+            if (Integer.parseInt(luckyNum) - count <= 0&&StringUtils.isNotBlank(id)) {
+
+                elemeUrlService.updateElemeUrlById(id);
+
+            }
+            logger.info("****************************************************{}领取结束*******************************************************************************", userName);
+            Object[] rt = {Integer.parseInt(luckyNum) - count, hongbaoSum};
+            Object[] rtFalse = {400, 0};   //防止恶意提交链接
+            if (count == 0) {
+                return rtFalse;
+            } else {
+                return rt;
             }
         }
+    }
 
 
     public String randomPhoneNum() {
